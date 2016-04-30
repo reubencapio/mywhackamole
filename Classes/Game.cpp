@@ -64,7 +64,7 @@ void Game::initializeGame()
 	} else if(choice == "poe"){
 		input = "poe.mp3";
 	} else if(choice == "miriam"){
-		input = "miriam.mp3";
+		input = "santiago.mp3";
 	} else if(choice == "roxas"){
 		input = "roxas.mp3";
 	}else{
@@ -113,7 +113,7 @@ void Game::tick(float dt)
 		int maxMolesAtOnce = 12;
 		if(molesAtOnce < maxMolesAtOnce) {
 			molesAtOnce++;
-			float minMoleTime = .1f;
+			float minMoleTime = 0.5f;
 			timeBetweenMoles -= (timeBetweenMoles > minMoleTime) ? .05 : 0;
 			increaseMolesAtTime += 10.0f;
 		}

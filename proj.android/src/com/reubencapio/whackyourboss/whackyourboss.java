@@ -29,17 +29,22 @@ import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 import org.cocos2dx.lib.Cocos2dxRenderer;
 
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.ConfigurationInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.FrameLayout;
 import android.view.ViewGroup;
+import com.google.ads.*;
+//import com.google.android.gms.ads.AdView; //don't uncomment will cause error
+//import com.google.android.gms.ads.*;
 
 public class whackyourboss extends Cocos2dxActivity{
 	private Cocos2dxGLSurfaceView mGLView;
-	
+	private AdView adView;
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		
@@ -50,7 +55,7 @@ public class whackyourboss extends Cocos2dxActivity{
 			super.setPackageName(packageName);
 			
             // FrameLayout
-            ViewGroup.LayoutParams framelayout_params =
+            /*ViewGroup.LayoutParams framelayout_params =
                 new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,
                                            ViewGroup.LayoutParams.FILL_PARENT);
             FrameLayout framelayout = new FrameLayout(this);
@@ -82,6 +87,17 @@ public class whackyourboss extends Cocos2dxActivity{
 
             // Set framelayout as the content view
 			setContentView(framelayout);
+			*/
+			setContentView(R.layout.main);
+            mGLView = (Cocos2dxGLSurfaceView) findViewById(R.id.game_gl_surfaceview);
+
+            mGLView.setEGLContextClientVersion(2);
+            mGLView.setCocos2dxRenderer(new Cocos2dxRenderer());
+
+            adView = (AdView)this.findViewById(R.id.adView);
+            adView.setVisibility(AdView.VISIBLE);
+            
+            adView.loadAd(new AdRequest());
 		}
 		else {
 			Log.d("activity", "don't support gles2.0");

@@ -63,7 +63,7 @@ void Mole::start()
 			CCCallFunc::create(this,callfunc_selector(Mole::stop)),
 			NULL));
 	this->runAction(CCSequence::create(
-				Utils::getAnimationWithFrames(0,5),
+				Utils::getAnimationWithFrames(0,11),
 				CCCallFunc::create(this,callfunc_selector(Mole::startLoopAnimation)),
 				NULL));
 }
@@ -75,8 +75,8 @@ void Mole::startLoopAnimation()
 		return;
 	}
 	CCRepeatForever *repeat = CCRepeatForever::create((CCSequence *)CCSequence::create(
-			Utils::getAnimationWithFrames(0,5),
-			Utils::getAnimationWithFrames(6,11),
+			Utils::getAnimationWithFrames(0,11),
+			Utils::getAnimationWithFrames(11,0),
 			NULL));
 	repeat->setTag(TAG_REPEAT_ANIM);
 	this->runAction(repeat);

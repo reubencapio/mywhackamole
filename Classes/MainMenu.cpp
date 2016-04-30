@@ -17,7 +17,7 @@
 
 using namespace cocos2d;
 using namespace CocosDenshion;
-char* choice = NULL;
+const char* choice = NULL;
 //USING_NS_CC;
 
 CCScene* MainMenu::scene()
@@ -68,27 +68,27 @@ bool MainMenu::init()
     this->addChild(menu,2);
 */
 
-    CCMenuItemSprite *binayButton = CCMenuItemSprite::create(GameButton::buttonWithText("BINAY!",false), NULL, this, menu_selector(ChooseHatest::binay));
+    CCMenuItemSprite *binayButton = CCMenuItemSprite::create(GameButton::buttonWithText("BINAY!",false), NULL, this, menu_selector(MainMenu::binay));
     CCMenu *binaymenu = CCMenu::create(binayButton,NULL);
     binaymenu->setPosition(ccp(s.width/9.1,s.height/2 - s.height/4.0f));
     this->addChild(binaymenu,2);
 
-    CCMenuItemSprite *poeButton = CCMenuItemSprite::create(GameButton::buttonWithText("POE!",false), NULL, this, menu_selector(ChooseHatest::poe));
+    CCMenuItemSprite *poeButton = CCMenuItemSprite::create(GameButton::buttonWithText("POE!",false), NULL, this, menu_selector(MainMenu::poe));
     CCMenu *poemenu = CCMenu::create(poeButton,NULL);
     poemenu->setPosition(ccp(s.width/3.8,s.height/2 - s.height/4.0f));
     this->addChild(poemenu,2);
 
-    CCMenuItemSprite *duterteButton = CCMenuItemSprite::create(GameButton::buttonWithText("DUTERTE!",false), NULL, this, menu_selector(ChooseHatest::duterte));
+    CCMenuItemSprite *duterteButton = CCMenuItemSprite::create(GameButton::buttonWithText("DUTERTE!",false), NULL, this, menu_selector(MainMenu::duterte));
     CCMenu *dutertemenu = CCMenu::create(duterteButton,NULL);
     dutertemenu->setPosition(ccp(s.width/2.1,s.height/2 - s.height/4.0f));
     this->addChild(dutertemenu,2);
 
-    CCMenuItemSprite *miriamButton = CCMenuItemSprite::create(GameButton::buttonWithText("MIRIAM!",false), NULL, this, menu_selector(ChooseHatest::miriam));
+    CCMenuItemSprite *miriamButton = CCMenuItemSprite::create(GameButton::buttonWithText("MIRIAM!",false), NULL, this, menu_selector(MainMenu::miriam));
     CCMenu *miriammenu = CCMenu::create(miriamButton,NULL);
     miriammenu->setPosition(ccp(s.width/1.5,s.height/2 - s.height/4.0f));
     this->addChild(miriammenu,2);
 
-    CCMenuItemSprite *roxasButton = CCMenuItemSprite::create(GameButton::buttonWithText("ROXAS!",false), NULL, this, menu_selector(ChooseHatest::roxas));
+    CCMenuItemSprite *roxasButton = CCMenuItemSprite::create(GameButton::buttonWithText("ROXAS!",false), NULL, this, menu_selector(MainMenu::roxas));
     CCMenu *roxasmenu = CCMenu::create(roxasButton,NULL);
     roxasmenu->setPosition(ccp(s.width/1.2,s.height/2 - s.height/4.0f));
     this->addChild(roxasmenu,2);
@@ -112,37 +112,37 @@ void MainMenu::mainMenu()
 }
 
 
-void ChooseHatest::poe()
+void MainMenu::poe()
 {
 	choice = "poe";
-	__android_log_write(ANDROID_LOG_INFO, "ChooseHatest", "poe");
+	__android_log_write(ANDROID_LOG_INFO, "MainMenu", "poe");
     CCDirector::sharedDirector()->replaceScene(Game::scene());
 }
 
-void ChooseHatest::miriam()
+void MainMenu::miriam()
 {
 	choice = "miriam";
-	__android_log_write(ANDROID_LOG_INFO, "ChooseHatest", "miriam");
+	__android_log_write(ANDROID_LOG_INFO, "MainMenu", "miriam");
     CCDirector::sharedDirector()->replaceScene(Game::scene());
 }
 
-void ChooseHatest::duterte()
+void MainMenu::duterte()
 {
 	choice = "duterte";
-	__android_log_write(ANDROID_LOG_INFO, "ChooseHatest", "duterte");
+	__android_log_write(ANDROID_LOG_INFO, "MainMenu", "duterte");
     CCDirector::sharedDirector()->replaceScene(Game::scene());
 }
 
-void ChooseHatest::binay()
+void MainMenu::binay()
 {
 	choice = "binay";
-	__android_log_write(ANDROID_LOG_INFO, "ChooseHatest", "binay");
+	__android_log_write(ANDROID_LOG_INFO, "MainMenu", "binay");
     CCDirector::sharedDirector()->replaceScene(Game::scene());
 }
 
-void ChooseHatest::roxas()
+void MainMenu::roxas()
 {
 	choice = "roxas";
-	__android_log_write(ANDROID_LOG_INFO, "ChooseHatest", "roxas");
+	__android_log_write(ANDROID_LOG_INFO, "MainMenu", "roxas");
     CCDirector::sharedDirector()->replaceScene(Game::scene());
 }

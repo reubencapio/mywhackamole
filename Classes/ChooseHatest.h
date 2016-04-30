@@ -1,3 +1,4 @@
+/*
 #ifndef __ChooseHatest_H__
 #define __ChooseHatest_H__
 
@@ -21,3 +22,4 @@ public:
 
 
 #endif
+*/
