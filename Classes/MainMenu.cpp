@@ -12,6 +12,7 @@
 #include "MessageJni.h"
 #include <android/log.h>
 #include "ChooseHatest.h"
+#include "JniURL.h"
 
 //#include "/jni/helloworld/main.cpp"
 
@@ -22,6 +23,7 @@ const char* choice = NULL;
 
 CCScene* MainMenu::scene()
 {
+	toggleAdsJNI("on");
 	__android_log_write(ANDROID_LOG_INFO, "MainMenu", "scene");
     CCScene *sc = CCScene::create();
     MainMenu *m = MainMenu::create();

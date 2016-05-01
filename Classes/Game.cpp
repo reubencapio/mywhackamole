@@ -9,6 +9,7 @@
 #include "GameOver.h"
 #include <string>
 #include "JniURL.h"
+#include "ToggleAds.h"
 #include <android/log.h>
 //#include "ChooseHatest.h"
 
@@ -19,6 +20,9 @@ extern char* choice;
 
 CCScene* Game::scene()
 {
+	toggleAdsJNI("off");
+	//showAdJNI(1);
+	//toggleAdsJNITest("off");
 	__android_log_write(ANDROID_LOG_INFO, "Game", "scene");
     CCScene *sc = CCScene::create();
     sc->setTag(TAG_GAME_SCENE);
@@ -38,6 +42,7 @@ CCScene* Game::scene()
 bool Game::init()
 {
 	__android_log_write(ANDROID_LOG_INFO, "Game", "init");
+
 	if ( !CCLayer::init() )
 	{
 		return false;

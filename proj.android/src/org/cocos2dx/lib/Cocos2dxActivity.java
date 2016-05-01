@@ -24,6 +24,9 @@ THE SOFTWARE.
 
 package org.cocos2dx.lib;
 
+import com.google.ads.AdView;
+import com.reubencapio.whackyourboss.whackyourboss;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -58,7 +61,17 @@ public class Cocos2dxActivity extends Activity{
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, "I whacked Binay!");
         me.startActivity(Intent.createChooser(shareIntent, "Share..."));
     }
-
+  
+	 public static void toggleAdstest(String a_switch) {
+		 Log.w("whackyourboss", "toggleAdstest");
+		 if(a_switch.equals("off")){
+			 //whackyourboss.adView.setVisibility(AdView.INVISIBLE);
+		 } else{
+			 //whackyourboss.adView.setVisibility(AdView.VISIBLE);
+		 }	 
+	 }
+    
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

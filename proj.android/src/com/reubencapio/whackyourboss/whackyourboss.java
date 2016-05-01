@@ -24,31 +24,57 @@ THE SOFTWARE.
 package com.reubencapio.whackyourboss;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
-import org.cocos2dx.lib.Cocos2dxEditText;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 import org.cocos2dx.lib.Cocos2dxRenderer;
 
+//import com.google.android.gms.ads.AdView; //don't uncomment will cause error
+//import com.google.android.gms.ads.*;
+import com.google.ads.AdRequest;
+import com.google.ads.AdView;
+
+import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.pm.ConfigurationInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
-import android.widget.FrameLayout;
-import android.view.ViewGroup;
-import com.google.ads.*;
-//import com.google.android.gms.ads.AdView; //don't uncomment will cause error
-//import com.google.android.gms.ads.*;
+import android.widget.LinearLayout;
 
 public class whackyourboss extends Cocos2dxActivity{
 	private Cocos2dxGLSurfaceView mGLView;
-	private AdView adView;
+	public static AdView adView;
+	static LinearLayout linear;
+	
+    public static whackyourboss me = null;
+    private static Handler handler;
+	
 	protected void onCreate(Bundle savedInstanceState){
-		super.onCreate(savedInstanceState);
-		
 		Log.w("whackyourboss", "onCreate");
+		
+		super.onCreate(savedInstanceState);
+		whackyourboss.me = this;
+		
+		handler = new Handler(){
+		public void handleMessage(Message msg)
+	    {
+			Log.w("whackyourboss", "handleMessage");
+	          switch (msg.what)
+	          {
+	               case 1:
+	                  setShowAd(true);
+	                  break;
+	               case 0:
+	                  setShowAd(false);
+	                  break;
+	          }
+	     }
+		};
+		
+		
+		
 		if (detectOpenGLES20()) {
 			// get the packageName,it's used to set the resource path
 			String packageName = getApplication().getPackageName();
@@ -107,15 +133,55 @@ public class whackyourboss extends Cocos2dxActivity{
 	
 	 @Override
 	 protected void onPause() {
+		 Log.w("whackyourboss", "onPause");
 	     super.onPause();
 	     mGLView.onPause();
 	 }
 
 	 @Override
 	 protected void onResume() {
+		 Log.w("whackyourboss", "onResume");
 	     super.onResume();
 	     mGLView.onResume();
+	     //adView.stopLoading();
 	 }
+	 /*
+	 public static void toggleAds(String a_switch) {
+		 Log.w("whackyourboss", "toggleAds");
+	 }
+	 */
+	 public void setShowAd(boolean visible)
+	 {
+		 Log.w("whackyourboss", "setShowAd");
+	      AdView adView = (AdView) this.findViewById(R.id.adView);
+	      if (visible)
+	      {
+	           adView.setVisibility(AdView.VISIBLE);
+	           adView.bringToFront();
+	      }
+	      else
+	      {
+	           adView.setVisibility(AdView.INVISIBLE);
+	      }
+	 }
+
+	 public static void toggleAds(String a_switch)
+	 {
+		 boolean visible = true;
+		 if(a_switch.equals("off")){
+			 visible = false;
+		 }
+		 Log.w("whackyourboss", "showAd");
+	      Message msg = new Message();
+	      if (visible)
+	          msg.what = 1;
+	      else
+	          msg.what = 0;
+
+	      handler.sendMessage(msg);
+	 }
+	 
+	 
 	 
 	 private boolean detectOpenGLES20() 
 	 {

@@ -237,6 +237,7 @@ obj/local/armeabi/objs/game_shared/__/__/Classes/Game.o: \
  jni/../../Classes/Popup.h jni/../../Classes/MainMenu.h \
  jni/../../Classes/GameOver.h \
  jni/../../../cocos2dx/platform/android/jni/JniURL.h \
+ jni/../../../cocos2dx/platform/android/jni/ToggleAds.h \
  /cygdrive/c/android_proj/android-ndk-r8b-windows/android-ndk-r8b/platforms/android-14/arch-arm/usr/include/android/log.h
 
 jni/../../Classes/Game.h:
@@ -722,5 +723,7 @@ jni/../../Classes/MainMenu.h:
 jni/../../Classes/GameOver.h:
 
 jni/../../../cocos2dx/platform/android/jni/JniURL.h:
+
+jni/../../../cocos2dx/platform/android/jni/ToggleAds.h:
 
 /cygdrive/c/android_proj/android-ndk-r8b-windows/android-ndk-r8b/platforms/android-14/arch-arm/usr/include/android/log.h:

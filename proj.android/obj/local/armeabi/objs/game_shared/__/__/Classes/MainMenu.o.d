@@ -237,7 +237,8 @@ obj/local/armeabi/objs/game_shared/__/__/Classes/MainMenu.o: \
  jni/../../Classes/Utils.h jni/../../Classes/HUD.h \
  jni/../../Classes/Constants.h \
  jni/../../../cocos2dx/platform/android/jni/MessageJni.h \
- /cygdrive/c/android_proj/android-ndk-r8b-windows/android-ndk-r8b/platforms/android-14/arch-arm/usr/include/android/log.h
+ /cygdrive/c/android_proj/android-ndk-r8b-windows/android-ndk-r8b/platforms/android-14/arch-arm/usr/include/android/log.h \
+ jni/../../../cocos2dx/platform/android/jni/JniURL.h
 
 jni/../../Classes/MainMenu.h:
 
@@ -722,3 +723,5 @@ jni/../../Classes/Constants.h:
 jni/../../../cocos2dx/platform/android/jni/MessageJni.h:
 
 /cygdrive/c/android_proj/android-ndk-r8b-windows/android-ndk-r8b/platforms/android-14/arch-arm/usr/include/android/log.h:
+
+jni/../../../cocos2dx/platform/android/jni/JniURL.h:

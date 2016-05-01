@@ -32,7 +32,9 @@ bool HUD::init()
     		CCSprite *c = CCSprite::createWithSpriteFrameName("life.png");
     		c->setAnchorPoint(ccp(1,1));
     		c->setScale(Utils::getScale());
+    		__android_log_write(ANDROID_LOG_INFO, "HUD", "before setPosition");
     		c->setPosition(ccp(Utils::s().width - padding - i * (c->getContentSize().width * c->getScale()), Utils::s().height - padding));
+    		__android_log_write(ANDROID_LOG_INFO, "HUD", "after setPosition");
     		carrots->addObject(c);
     		this->addChild(c,1);
     }
@@ -41,7 +43,7 @@ bool HUD::init()
     scoreLabel->setScale(2);
     scoreLabel->setPosition(ccp(padding,Utils::s().height - padding));
     this->addChild(scoreLabel,1);
-
+    __android_log_write(ANDROID_LOG_INFO, "HUD", "exit");
     return true;
 }
 

@@ -25,7 +25,9 @@ bool Popup::initWithTitle(const char *title)
     m->setPosition(ccp(Utils::s().width/2,Utils::s().height/2));
     m->setScale(2);
     this->addChild(m,1);
+    __android_log_write(ANDROID_LOG_INFO, "Popup", "before getArtScaleFactor");
     CCLabelTTF *titleLabel = CCLabelTTF::create(title, CCString::createWithFormat("%s.ttf", FONT_MAIN)->getCString(), 24 * Utils::getArtScaleFactor());
+    __android_log_write(ANDROID_LOG_INFO, "Popup", "after getArtScaleFactor");
     titleLabel->setPosition(ccp(Utils::s().width/2,Utils::s().height/2 + (m->getContentSize().height/2 * m->getScale()) - titleLabel->getContentSize().height * 2));
     this->addChild(titleLabel,1);
     this->setVisible(false);
